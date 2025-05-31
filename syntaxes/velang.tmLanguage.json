@@ -1,0 +1,254 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "VeLang",
+  "scopeName": "source.velang",  "patterns": [
+    {
+      "include": "#comments"
+    },
+    {
+      "include": "#imports"
+    },
+    {
+      "include": "#keywords"
+    },
+    {
+      "include": "#types"
+    },
+    {
+      "include": "#functions"
+    },
+    {
+      "include": "#strings"
+    },
+    {
+      "include": "#numbers"
+    },
+    {
+      "include": "#operators"
+    },
+    {
+      "include": "#variables"
+    }
+  ],  "repository": {
+    "imports": {
+      "patterns": [
+        {
+          "name": "meta.import.velang",
+          "begin": "\\b(import)\\s+",
+          "beginCaptures": {
+            "1": {
+              "name": "keyword.control.import.velang"
+            }
+          },
+          "end": ";?$",
+          "patterns": [
+            {
+              "name": "string.quoted.double.import.velang",
+              "begin": "\"",
+              "end": "\"",
+              "patterns": [
+                {
+                  "name": "constant.character.escape.velang",
+                  "match": "\\\\."
+                },
+                {
+                  "name": "support.constant.std.velang",
+                  "match": "std/[a-zA-Z_][a-zA-Z0-9_/]*"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "comments": {
+      "patterns": [
+        {
+          "name": "comment.line.double-slash.velang",
+          "begin": "//",
+          "end": "$"
+        },
+        {
+          "name": "comment.block.velang",
+          "begin": "/\\*",
+          "end": "\\*/"
+        }
+      ]
+    },
+    "keywords": {
+      "patterns": [
+        {
+          "name": "keyword.control.velang",
+          "match": "\\b(if|else|elif|while|for|in|break|continue|return|match|case|default)\\b"
+        },        {
+          "name": "keyword.declaration.velang",
+          "match": "\\b(let|var|fn|struct|enum|impl|trait|defer|const|pub|private|import)\\b"
+        },
+        {
+          "name": "keyword.other.velang",
+          "match": "\\b(true|false|null|self|Self|super)\\b"
+        }
+      ]
+    },
+    "types": {
+      "patterns": [
+        {
+          "name": "entity.name.type.primitive.velang",
+          "match": "\\b(i32|i64|i8|i16|u32|u64|u8|u16|f32|f64|bool|char|str|string|void)\\b"
+        },
+        {
+          "name": "entity.name.type.velang",
+          "match": "\\b[A-Z][a-zA-Z0-9_]*\\b"
+        }
+      ]
+    },
+    "functions": {
+      "patterns": [        {
+          "name": "entity.name.function.velang",
+          "begin": "\\b(fn)\\s+([a-zA-Z_][a-zA-Z0-9_]*)",
+          "beginCaptures": {
+            "1": {
+              "name": "keyword.declaration.velang"
+            },
+            "2": {
+              "name": "entity.name.function.velang"
+            }
+          },
+          "end": "(?=\\{)",
+          "patterns": [
+            {
+              "include": "#types"
+            },
+            {
+              "include": "#variables"
+            }
+          ]
+        },
+        {
+          "name": "support.function.velang",
+          "match": "\\b([a-zA-Z_][a-zA-Z0-9_]*)\\s*(?=\\()"
+        }
+      ]
+    },    "strings": {
+      "patterns": [
+        {
+          "name": "string.quoted.double.velang",
+          "begin": "\"",
+          "end": "\"",
+          "patterns": [
+            {
+              "name": "constant.character.escape.velang",
+              "match": "\\\\."
+            }
+          ]
+        },
+        {
+          "name": "string.quoted.single.velang",
+          "begin": "'",
+          "end": "'",
+          "patterns": [
+            {
+              "name": "constant.character.escape.velang",
+              "match": "\\\\."
+            }
+          ]
+        },
+        {
+          "name": "string.template.velang",
+          "begin": "`",
+          "end": "`",
+          "patterns": [
+            {
+              "name": "meta.template.expression.velang",
+              "begin": "\\$\\{",
+              "end": "\\}",
+              "beginCaptures": {
+                "0": {
+                  "name": "punctuation.definition.template-expression.begin.velang"
+                }
+              },
+              "endCaptures": {
+                "0": {
+                  "name": "punctuation.definition.template-expression.end.velang"
+                }
+              },
+              "patterns": [
+                {
+                  "include": "#variables"
+                },
+                {
+                  "include": "#functions"
+                },
+                {
+                  "include": "#operators"
+                },
+                {
+                  "include": "#numbers"
+                },
+                {
+                  "include": "#strings"
+                }
+              ]
+            },
+            {
+              "name": "constant.character.escape.velang",
+              "match": "\\\\."
+            }
+          ]
+        }
+      ]
+    },
+    "numbers": {
+      "patterns": [
+        {
+          "name": "constant.numeric.float.velang",
+          "match": "\\b\\d+\\.\\d+([eE][+-]?\\d+)?\\b"
+        },
+        {
+          "name": "constant.numeric.integer.velang",
+          "match": "\\b\\d+\\b"
+        },
+        {
+          "name": "constant.numeric.hex.velang",
+          "match": "\\b0[xX][0-9a-fA-F]+\\b"
+        },
+        {
+          "name": "constant.numeric.binary.velang",
+          "match": "\\b0[bB][01]+\\b"
+        }
+      ]
+    },
+    "operators": {
+      "patterns": [
+        {
+          "name": "keyword.operator.arithmetic.velang",
+          "match": "[+\\-*/%]"
+        },
+        {
+          "name": "keyword.operator.comparison.velang",
+          "match": "(==|!=|<=|>=|<|>)"
+        },
+        {
+          "name": "keyword.operator.logical.velang",
+          "match": "(&&|\\|\\||!)"
+        },
+        {
+          "name": "keyword.operator.assignment.velang",
+          "match": "(=|\\+=|\\-=|\\*=|/=|%=)"
+        },
+        {
+          "name": "keyword.operator.other.velang",
+          "match": "(\\.|->|::|&|\\*)"
+        }
+      ]
+    },
+    "variables": {
+      "patterns": [
+        {
+          "name": "variable.other.velang",
+          "match": "\\b[a-zA-Z_][a-zA-Z0-9_]*\\b"
+        }
+      ]
+    }
+  }
+}

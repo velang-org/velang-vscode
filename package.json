@@ -1,0 +1,124 @@
+{
+  "name": "velang",
+  "displayName": "VeLang",
+  "description": "Language support for VeLang programming language",
+  "version": "0.1.0",
+  "publisher": "velang-org",
+  "engines": {
+    "vscode": "^1.74.0"
+  },
+  "categories": [
+    "Programming Languages",
+    "Snippets"
+  ],
+  "keywords": [
+    "velang",
+    "ve",
+    "programming language",
+    "syntax highlighting"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/velang-org/velang-vscode"
+  },
+  "contributes": {
+    "languages": [
+      {
+        "id": "velang",
+        "aliases": [
+          "VeLang",
+          "velang"
+        ],
+        "extensions": [
+          ".ve"
+        ],
+        "configuration": "./language-configuration.json",
+        "icon": {
+          "light": "./icons/velang-light.png",
+          "dark": "./icons/velang-dark.png"
+        }
+      }
+    ],
+    "grammars": [
+      {
+        "language": "velang",
+        "scopeName": "source.velang",
+        "path": "./syntaxes/velang.tmLanguage.json"
+      }
+    ],
+    "snippets": [
+      {
+        "language": "velang",
+        "path": "./snippets/velang.json"
+      }
+    ],
+    "commands": [
+      {
+        "command": "velang.build",
+        "title": "Build VeLang Project",
+        "category": "VeLang"
+      },
+      {
+        "command": "velang.run",
+        "title": "Run VeLang Project",
+        "category": "VeLang"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "velang.build",
+        "key": "ctrl+shift+b",
+        "when": "resourceExtname == .ve"
+      },
+      {
+        "command": "velang.run",
+        "key": "f5",
+        "when": "resourceExtname == .ve"
+      }
+    ],
+    "configuration": {
+      "type": "object",
+      "title": "VeLang",
+      "properties": {
+        "velang.compilerPath": {
+          "type": "string",
+          "default": "ve",
+          "description": "Path to the VeLang compiler"
+        },
+        "velang.buildArgs": {
+          "type": "array",
+          "default": [],
+          "description": "Additional arguments to pass to the compiler"
+        },
+        "velang.disableWordBasedSuggestions": {
+          "type": "boolean",
+          "default": true,
+          "description": "Disable word-based suggestions for VeLang files"
+        }
+      }
+    },
+    "configurationDefaults": {
+      "[velang]": {
+        "editor.wordBasedSuggestions": "off",
+        "editor.suggest.showWords": false
+      }
+    }
+  },
+  "activationEvents": [
+    "onLanguage:velang"
+  ],
+  "main": "./out/extension.js",
+  "scripts": {
+    "vscode:prepublish": "bun run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "package": "vsce package",
+    "test": "bun test"
+  },
+  "devDependencies": {
+    "@types/node": "16.x",
+    "@types/vscode": "^1.74.0",
+    "@vscode/vsce": "^3.4.2",
+    "typescript": "^4.9.4"
+  }
+}

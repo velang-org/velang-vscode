@@ -1,0 +1,120 @@
+{
+  "import statement": {
+    "prefix": "import",
+    "body": "import \"${1:std/io}\";",
+    "description": "Import a module"
+  },
+  "fn main": {
+    "prefix": "main",
+    "body": [
+      "fn main() {",
+      "    $0",
+      "}"
+    ],
+    "description": "Main function definition"
+  },
+  "fn keyword": {
+    "prefix": "fn",
+    "body": "fn ${1:function_name}(${2:parameters}) {\n    $0\n}",
+    "description": "Function definition"
+  },
+  "let keyword": {
+    "prefix": "let",
+    "body": "let ${1:name}: ${2:type} = ${3:value};",
+    "description": "Let variable declaration"
+  },
+  "var keyword": {
+    "prefix": "var",
+    "body": "var ${1:name}: ${2:type} = ${3:value};",
+    "description": "Var variable declaration"
+  },
+  "if statement": {
+    "prefix": "if",
+    "body": [
+      "if ${1:condition} {",
+      "    $0",
+      "}"
+    ],
+    "description": "If statement"
+  },
+  "else keyword": {
+    "prefix": "else",
+    "body": "else {\n    $0\n}",
+    "description": "Else block"
+  },
+  "while loop": {
+    "prefix": "while",
+    "body": [
+      "while ${1:condition} {",
+      "    $0",
+      "}"
+    ],
+    "description": "While loop"
+  },
+  "for loop": {
+    "prefix": "for",
+    "body": [
+      "for ${1:item} in ${2:items} {",
+      "    $0",
+      "}"
+    ],
+    "description": "For loop"
+  },
+  "struct definition": {
+    "prefix": "struct",
+    "body": [
+      "struct ${1:Name} {",
+      "    $0",
+      "}"
+    ],
+    "description": "Struct definition"
+  },
+  "enum definition": {
+    "prefix": "enum",
+    "body": [
+      "enum ${1:Name} {",
+      "    $0",
+      "}"
+    ],
+    "description": "Enum definition"
+  },
+  "match statement": {
+    "prefix": "match",
+    "body": [
+      "match ${1:expr} {",
+      "    $0",
+      "}"
+    ],
+    "description": "Match statement"
+  },
+  "return keyword": {
+    "prefix": "return",
+    "body": "return $1;",
+    "description": "Return statement"
+  },
+  "true keyword": {
+    "prefix": "true",
+    "body": "true",
+    "description": "Boolean true"
+  },
+  "false keyword": {
+    "prefix": "false",
+    "body": "false",
+    "description": "Boolean false"
+  },
+  "i32 type": {
+    "prefix": "i32",
+    "body": "i32",
+    "description": "32-bit integer type"
+  },
+  "string type": {
+    "prefix": "string",
+    "body": "string",
+    "description": "String type"
+  },
+  "bool type": {
+    "prefix": "bool",
+    "body": "bool",
+    "description": "Boolean type"
+  }
+}

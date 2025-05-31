@@ -1,0 +1,14 @@
+.vscode/**
+.gitignore
+.gitattributes
+.vscodeignore
+**/*.log
+**/*.vsix
+node_modules/**
+.git/**
+src/**
+tsconfig.json
+bun.lock
+examples/**
+*.md
+!README.md
