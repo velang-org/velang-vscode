@@ -116,5 +116,85 @@
     "prefix": "bool",
     "body": "bool",
     "description": "Boolean type"
+  },
+  "safe keyword": {
+    "prefix": "safe",
+    "body": "safe",
+    "description": "Safe block or keyword"
+  },
+  "rawptr keyword": {
+    "prefix": "rawptr",
+    "body": "rawptr",
+    "description": "Raw pointer keyword"
+  },
+  "defer keyword": {
+    "prefix": "defer",
+    "body": "defer {\n    $0\n}",
+    "description": "Defer block"
+  },
+  "as keyword": {
+    "prefix": "as",
+    "body": "as",
+    "description": "As keyword (type cast)"
+  },
+  "from keyword": {
+    "prefix": "from",
+    "body": "from",
+    "description": "From keyword"
+  },
+  "export keyword": {
+    "prefix": "export",
+    "body": "export",
+    "description": "Export keyword"
+  },
+  "foreign keyword": {
+    "prefix": "foreign",
+    "body": "foreign",
+    "description": "Foreign keyword"
+  },
+  "any type": {
+    "prefix": "any",
+    "body": "any",
+    "description": "Any type"
+  },
+  "byte type": {
+    "prefix": "byte",
+    "body": "byte",
+    "description": "Byte type (alias for u8)"
+  },
+  "ushort type": {
+    "prefix": "ushort",
+    "body": "ushort",
+    "description": "Unsigned short type (alias for u16)"
+  },
+  "uint type": {
+    "prefix": "uint",
+    "body": "uint",
+    "description": "Unsigned int type (alias for u32)"
+  },
+  "ulong type": {
+    "prefix": "ulong",
+    "body": "ulong",
+    "description": "Unsigned long type (alias for u64)"
+  },
+  "sbyte type": {
+    "prefix": "sbyte",
+    "body": "sbyte",
+    "description": "Signed byte type (alias for i8)"
+  },
+  "short type": {
+    "prefix": "short",
+    "body": "short",
+    "description": "Short type (alias for i16)"
+  },
+  "long type": {
+    "prefix": "long",
+    "body": "long",
+    "description": "Long type (alias for i64)"
+  },
+  "double type": {
+    "prefix": "double",
+    "body": "double",
+    "description": "Double type (alias for f64)"
   }
 }

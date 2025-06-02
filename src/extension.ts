@@ -301,6 +301,17 @@ class VeLangCompletionProvider implements vscode.CompletionItemProvider {
             }
         }
         
+        const keywords = [
+            'fn', 'let', 'var', 'if', 'else', 'return', 'safe', 'rawptr', 'defer', 'as', 'while', 'for', 'import', 'from', 'export', 'struct', 'enum', 'match', 'true', 'false', 'foreign', 'in'
+        ];
+        for (const kw of keywords) {
+            const item = new vscode.CompletionItem(kw, vscode.CompletionItemKind.Keyword);
+            item.insertText = kw;
+            item.detail = 'Keyword';
+            item.sortText = '0' + kw;
+            completionItems.push(item);
+        }
+
         return completionItems;
     }
     

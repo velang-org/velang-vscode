@@ -79,10 +79,11 @@
       "patterns": [
         {
           "name": "keyword.control.velang",
-          "match": "\\b(if|else|elif|while|for|in|break|continue|return|match|case|default)\\b"
-        },        {
+          "match": "\\b(if|else|elif|while|for|in|break|continue|return|match|case|default|as|from|defer|safe|foreign)\\b"
+        },
+        {
           "name": "keyword.declaration.velang",
-          "match": "\\b(let|var|fn|struct|enum|impl|trait|defer|const|pub|private|import)\\b"
+          "match": "\\b(let|var|fn|struct|enum|impl|trait|defer|const|pub|private|import|export|rawptr)\\b"
         },
         {
           "name": "keyword.other.velang",
@@ -94,7 +95,7 @@
       "patterns": [
         {
           "name": "entity.name.type.primitive.velang",
-          "match": "\\b(i32|i64|i8|i16|u32|u64|u8|u16|f32|f64|bool|char|str|string|void)\\b"
+          "match": "\\b(i32|i64|i8|i16|u32|u64|u8|u16|f32|f64|bool|char|str|string|void|any|byte|ushort|uint|ulong|sbyte|short|long|double)\\b"
         },
         {
           "name": "entity.name.type.velang",
@@ -222,7 +223,7 @@
       "patterns": [
         {
           "name": "keyword.operator.arithmetic.velang",
-          "match": "[+\\-*/%]"
+          "match": "(\\+|\\-|\\*\\*|\\*|/|%|\\^|\\.\\.\\.|\\.\\.|=>|->|=|==|!=|<=|>=|<|>|\\|\\||&&|\\||#)"
         },
         {
           "name": "keyword.operator.comparison.velang",
@@ -238,7 +239,7 @@
         },
         {
           "name": "keyword.operator.other.velang",
-          "match": "(\\.|->|::|&|\\*)"
+          "match": "(\\.|->|::|&|\\*|\\[\\]|,|;|:|\\(|\\)|\\{|\\}|\\[|\\])"
         }
       ]
     },
