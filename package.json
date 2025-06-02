@@ -2,7 +2,7 @@
   "name": "velang",
   "displayName": "VeLang",
   "description": "Language support for VeLang programming language",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "publisher": "velang-org",
   "engines": {
     "vscode": "^1.74.0"
